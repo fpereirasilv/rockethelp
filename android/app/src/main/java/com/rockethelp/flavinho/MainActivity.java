@@ -1,4 +1,4 @@
-package com.rockethelp1;
+package com.rockethelp.flavinho;
 
 import android.os.Build;
 import android.os.Bundle;

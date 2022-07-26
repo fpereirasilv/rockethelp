@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "312587502142",
+    "project_id": "rockethelp-73d8c",
+    "storage_bucket": "rockethelp-73d8c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312587502142:android:2c1fc7d65168a62d24476f",
+        "android_client_info": {
+          "package_name": "com.rockethelp.flavinho"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "312587502142-on0u14mekhc7ihesvf73kr9g1ehq6bqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvC1YFGPDB7p1Hmch1di2REhGOeMSxVNg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "312587502142-on0u14mekhc7ihesvf73kr9g1ehq6bqd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
