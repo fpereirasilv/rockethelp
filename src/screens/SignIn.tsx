@@ -6,12 +6,15 @@ import {Envelope, Key} from "phosphor-react-native";
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
 import { Alert } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
 
 export function SignIn() {
     const [isLoading, setIsLoading] = useState(false)
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigation = useNavigation();
 
     const { colors } = useTheme();
 
@@ -42,9 +45,39 @@ export function SignIn() {
 
                 return Alert.alert('Error', 'Não foi possível acessar.')
             })
-        
 
+    }
 
+    function handleCreateUser() {
+        if (!email || !password ) {
+            return Alert.alert('Menssage', 'Email ou senha vazio.!')
+        }
+
+        if (password.length < 6 ) {
+            return Alert.alert('Menssage', 'A senha deve ter mais que 6 digitos')            
+        }
+
+        setIsLoading(true);
+
+        auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then(() => {
+                console.log('User account created & signed in!');
+            })
+            .catch(error => {
+                console.log(error)
+                setIsLoading(false)
+                
+                if (error.code === 'auth/email-already-in-use') {
+                    return Alert.alert('Error', 'Este email já esta em uso!');
+                }
+
+                if (error.code === 'auth/invalid-email') {
+                    return Alert.alert('Error', 'Este email é inválido!');    
+                }
+
+                return Alert.alert('Error', 'Não foi possível criar a conta.')                
+            });
     }
 
     return (
@@ -72,6 +105,14 @@ export function SignIn() {
                 w="full"
                 onPress={handleSignIn}
                 isLoading={isLoading}
+            />
+
+            <Button
+                title="Criar Conta"
+                w="full"
+                onPress={handleCreateUser}
+                isLoading={isLoading}
+                mt={5}
             />
         </VStack>
     )
